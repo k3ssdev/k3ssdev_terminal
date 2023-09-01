@@ -97,7 +97,8 @@ configure_prompt() {
     #[ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-            PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+            PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n$prompt_symbol%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/.../%4~.%5~)%b%F{%(#.blue.green)}]-%B%F{152}[`get_ip`]%b%f%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+            #PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
             # Right-side prompt with exit codes and background processes
             #RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
             ;;
@@ -280,11 +281,70 @@ function extractPorts(){
 	cat extractPorts.tmp; rm extractPorts.tmp
 }
 
+# Settarget
+
+function settarget(){
+	if [ $# -eq 1 ]; then
+	echo $1 > ~/.config/bin/target
+	elif [ $# -gt 2 ]; then
+	echo "settarget [IP] [NAME] | settarget [IP]"
+	else
+	echo $1 $2 > ~/.config/bin/target
+	fi
+}
+
+# Set 'man' colors
+function man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    man "$@"
+}
+
+# fzf improvement
+function fzf-lovely(){
+
+	if [ "$1" = "h" ]; then
+		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
+ 	                echo {} is a binary file ||
+	                 (bat --style=numbers --color=always {} ||
+	                  highlight -O ansi -l {} ||
+	                  coderay {} ||
+	                  rougify {} ||
+	                  cat {}) 2> /dev/null | head -500'
+
+	else
+	        fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+	                         echo {} is a binary file ||
+	                         (bat --style=numbers --color=always {} ||
+	                          highlight -O ansi -l {} ||
+	                         coderay {} ||
+	                          rougify {} ||
+	                          cat {}) 2> /dev/null | head -500'
+	fi
+}
+
 function rmk(){
 	scrub -p dod $1
 	shred -zun 10 -v $1
 }
 
+function get_ip(){
+   # It can be thm or htb IP
+   tunnel_ip=`ifconfig tun0 2>/dev/null | grep netmask | awk '{print $2}'` 
+   # Use eth0 as default IP,
+   default_ip=`ifconfig eth0 2>/dev/null | grep netmask | awk '{print $2}'`
+   if [[ $tunnel_ip == *"10."* ]]; then
+      echo $tunnel_ip
+   else
+      echo $default_ip
+   fi
+}
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
@@ -295,16 +355,13 @@ alias lock="betterlockscreen -l dim"
 alias img="kitty +kitten icat"
 alias cat="batcat"
 alias ls="colorls --sd -A"
-#alias ls="lsd -A -l"
+alias ls="lsd -A -l"
 alias catn="/usr/bin/cat"
 alias clock="tty-clock -sxc -C 2"
-alias pipes="cd /home/${user}/pipes.sh && ./pipes.sh -t 9"
-alias server="cd /home/alvinpix/Escritorio/PX-games/Services && sudo openvpn --config metasbom.exploits.ovpn"
-alias clsapt="cd /home/alvinpix/Escritorio/PX-games/Visualcode/Shell-bash && ./aptclean.sh"
 alias clsram="sudo sync && sudo sysctl -w vm.drop_caches=3"
 alias cachefont="fc-cache -fv"
 alias colorscript="bash /home/${user}/shell-color-scripts/colorscript.sh -r"
-bash /home/${user}/shell-color-scripts/colorscript.sh -r
+#bash /home/${user}/shell-color-scripts/colorscript.sh -r
 
 # fzf improvement
 function fzf-lovely(){
