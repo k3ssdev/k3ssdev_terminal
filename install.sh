@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Instalar fuentes Meslo
+mkdir -p ~/.fonts
+cp "MesloLGS NF Bold Italic.ttf" ~/.fonts
+cp "MesloLGS NF Bold.ttf" ~/.fonts
+cp "MesloLGS NF Italic.ttf" ~/.fonts
+cp "MesloLGS NF Regular.ttf" ~/.fonts
+
+# Añade fuentes de usuario (en ~/.fonts)
+fc-cache -f -v         
+
 # Instalar Kitty como terminal y configurarlo como predeterminado
 sudo apt-get update
 sudo apt-get install kitty -y
@@ -22,16 +32,6 @@ sudo apt-get install rubygems-integration -y
 gem install colorls
 sudo apt-get install lsd -y
 sudo apt-get install betterlockscreen -y
-
-# Instalar fuentes Meslo
-mkdir -p ~/.fonts
-cp "MesloLGS NF Bold Italic.ttf" ~/.fonts
-cp "MesloLGS NF Bold.ttf" ~/.fonts
-cp "MesloLGS NF Italic.ttf" ~/.fonts
-cp "MesloLGS NF Regular.ttf" ~/.fonts
-
-# Añade fuentes de usuario (en ~/.fonts)
-fc-cache -f -v         
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
