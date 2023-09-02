@@ -2,13 +2,6 @@
 
 Configuración de terminal kitty con powerlevel10 y tema de HackTheBox.
 
-## Contenido
-
-- [Descripción](#descripción)
-- [Instrucciones de Uso](#instrucciones-de-uso)
-- [Requisitos](#requisitos)
-- [Licencia](#licencia)
-
 ## Descripción
 
 Este repositorio está diseñado para simplificar la configuración de Kali Linux y las herramientas que uso regularmente. Incluye un script que realiza las siguientes acciones:
