@@ -30,7 +30,7 @@ Este repositorio está diseñado para simplificar la configuración de Kali Linu
 3. Ejecuta el script para automatizar la instalación y configuración:
 
    ```bash
-   chmod +x instasll.sh
+   chmod +x install.sh
    ./install.sh
    ```
 
