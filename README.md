@@ -38,7 +38,7 @@ Este repositorio está diseñado para simplificar la configuración de Kali Linu
 
 ## Requisitos
 
-Asegúrate de tener instalado Git También necesitarás permisos de administrador para ejecutar ciertas partes del script.
+Asegúrate de tener instalado Git. También necesitarás permisos de administrador para ejecutar ciertas partes del script.
 
 ## Licencia
 
