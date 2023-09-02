@@ -11,7 +11,7 @@ Este repositorio está diseñado para simplificar la configuración de Kali Linu
 - Instala powerlevel10k para mejorar la apariencia de la terminal.
 - Configura temas de Kitty en ~/.config/kitty/.
 - Copia los archivos .zshrc, .p10k.zsh y kitty.conf en sus ubicaciones correspondientes.
-- Instala rubygems-integration, colorls y lsd.
+- Instala rubygems-integration, betterlockscreen, colorls y lsd.
 
 ## Instrucciones de Uso
 
