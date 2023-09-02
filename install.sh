@@ -35,3 +35,6 @@ sudo apt-get install betterlockscreen -y
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
+
+# Abre kitty
+kitty&
