@@ -15,7 +15,7 @@ sudo update-alternatives --config x-terminal-emulator
 
 # Instalar powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+#echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # Instalar themes de Kitty en ~/.config/kitty/
 mkdir -p ~/.config/kitty
@@ -23,15 +23,13 @@ cd ~/.config/kitty
 git clone https://github.com/kovidgoyal/kitty-themes.git
 
 # Instalar colorscripts
-git clone https://github.com/charitarthchugh/shell-color-scripts ~/shell-color-scripts
+git clone https://github.com/charitarthchugh/shell-color-scripts.git ~/shell-color-scripts
 
 # Copiar fichero .zshrc, .p10k.zsh y kitty.conf del repositorio en las carpetas correspondientes
-cd ~
-git clone https://github.com/tu/repositorio.git
-cp repositorio/.zshrc ~/
-cp repositorio/.p10k.zsh ~/
-cp repositorio/kitty.conf ~/.config/kitty/
-cp repositorio/current-theme.conf ~/.config/kitty/
+cp .zshrc ~/
+cp .p10k.zsh ~/
+cp kitty.conf ~/.config/kitty/
+cp current-theme.conf ~/.config/kitty/
 
 # Instalar rubygems-integration, betterlockscreen, colorls y lsd
 sudo apt-get install rubygems-integration -y
