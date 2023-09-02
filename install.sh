@@ -32,10 +32,11 @@ cp repositorio/.zshrc ~/
 cp repositorio/.p10k.zsh ~/
 cp repositorio/kitty.conf ~/.config/kitty/
 
-# Instalar rubygems-integration, colorls y lsd
+# Instalar rubygems-integration, betterlockscreen, colorls y lsd
 sudo apt-get install rubygems-integration -y
 gem install colorls
 sudo apt-get install lsd -y
+sudo apt-get install betterlockscreen -y
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
