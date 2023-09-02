@@ -22,6 +22,9 @@ mkdir -p ~/.config/kitty
 cd ~/.config/kitty
 git clone https://github.com/kovidgoyal/kitty-themes.git
 
+# Instalar colorscripts
+git clone https://github.com/charitarthchugh/shell-color-scripts ~/shell-color-scripts
+
 # Copiar fichero .zshrc, .p10k.zsh y kitty.conf del repositorio en las carpetas correspondientes
 cd ~
 git clone https://github.com/tu/repositorio.git
