@@ -31,6 +31,7 @@ git clone https://github.com/tu/repositorio.git
 cp repositorio/.zshrc ~/
 cp repositorio/.p10k.zsh ~/
 cp repositorio/kitty.conf ~/.config/kitty/
+cp repositorio/current-theme.conf ~/.config/kitty/
 
 # Instalar rubygems-integration, betterlockscreen, colorls y lsd
 sudo apt-get install rubygems-integration -y
