@@ -361,7 +361,7 @@ alias clock="tty-clock -sxc -C 2"
 alias clsram="sudo sync && sudo sysctl -w vm.drop_caches=3"
 alias cachefont="fc-cache -fv"
 alias colorscript="bash /home/${user}/shell-color-scripts/colorscript.sh -r"
-#bash /home/${user}/shell-color-scripts/colorscript.sh -r
+bash /home/${user}/shell-color-scripts/colorscript.sh -r
 
 # fzf improvement
 function fzf-lovely(){
