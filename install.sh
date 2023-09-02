@@ -22,7 +22,7 @@ mkdir -p ~/.config/kitty
 git clone https://github.com/kovidgoyal/kitty-themes.git ~/.config/kitty/
 
 # Instalar colorscripts
-git clone https://github.com/charitarthchugh/shell-color-scripts.git ~/shell-color-scripts
+git clone https://github.com/k3ssdev/shell-color-scripts.git ~/shell-color-scripts
 chmod +x ~/shell-color-scripts/coloscript.sh
 
 # Instalar rubygems-integration, betterlockscreen, colorls y lsd
