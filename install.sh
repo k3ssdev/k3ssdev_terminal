@@ -33,14 +33,5 @@ cp "MesloLGS NF Regular.ttf" ~/.fonts
 # Añade fuentes de usuario (en ~/.fonts)
 fc-cache -f -v         
 
-
-# Descargar las fuentes MesloLGS en ~/Downloads
-#mkdir -p ~/Downloads
-#cd ~/Downloads
-#wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-#wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-#wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-#wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
