@@ -19,8 +19,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 # Instalar themes de Kitty en ~/.config/kitty/
 mkdir -p ~/.config/kitty
-cd ~/.config/kitty
-git clone https://github.com/kovidgoyal/kitty-themes.git
+
+git clone https://github.com/kovidgoyal/kitty-themes.git ~/.config/kitty/
 
 # Instalar colorscripts
 git clone https://github.com/charitarthchugh/shell-color-scripts.git ~/shell-color-scripts
