@@ -361,7 +361,7 @@ alias clock="tty-clock -sxc -C 2"
 alias clsram="sudo sync && sudo sysctl -w vm.drop_caches=3"
 alias cachefont="fc-cache -fv"
 alias colorscript="bash /home/${user}/shell-color-scripts/colorscript.sh -r"
-bash /home/${user}/shell-color-scripts/colorscript.sh -r
+#bash /home/${user}/shell-color-scripts/colorscript.sh -r
 
 # fzf improvement
 function fzf-lovely(){
@@ -400,3 +400,26 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# MODT
+/bin/cat ~/.modt
+
+
+
+nmap_scan() {
+  local ip_address="$1"  # Obtener la dirección IP del primer parámetro
+  
+  if [ -z "$ip_address" ]; then
+    echo "Por favor, proporciona una dirección IP como argumento."
+    exit 1
+  fi
+
+  # Escaneo inicial
+  sudo nmap -sS --min-rate 5000 -p- -Pn -v -oN nmap_inicial "$ip_address"
+  
+  # Procesar la salida del primer escaneo y extraer puertos
+  ports=$(cat nmap_inicial | grep '^[0-9]' | cut -d '/' -f1 | xargs | tr ' ' ',')
+
+  # Escaneo final utilizando los puertos extraídos
+  sudo nmap -p"$ports" -sC -sV -Pn -oN nmap_final "$ip_address"
+}
