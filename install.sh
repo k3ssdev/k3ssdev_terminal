@@ -11,8 +11,8 @@ cp "MesloLGS NF Regular.ttf" ~/.fonts
 fc-cache -f -v         
 
 # Instalar Kitty como terminal y configurarlo como predeterminado
-sudo apt-get update
-sudo apt-get install kitty -y
+sudo apt update
+sudo apt install kitty -y
 #sudo update-alternatives --config x-terminal-emulator
 
 # Instalar powerlevel10k
@@ -30,8 +30,10 @@ chmod +x ~/shell-color-scripts/coloscript.sh
 # Instalar rubygems-integration, betterlockscreen, colorls y lsd
 sudo apt-get install rubygems-integration -y
 gem install colorls
-sudo apt-get install lsd -y
-sudo apt-get install betterlockscreen -y
+sudo apt install lsd -y
+sudo apt install betterlockscreen -y
+sudo apt install lolcat -y
+sudo apt install batcat -y
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
