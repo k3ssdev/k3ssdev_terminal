@@ -28,12 +28,18 @@ git clone https://github.com/k3ssdev/shell-color-scripts.git ~/shell-color-scrip
 chmod +x ~/shell-color-scripts/coloscript.sh
 
 # Instalar rubygems-integration, betterlockscreen, colorls y lsd
-sudo apt-get install rubygems-integration -y
+sudo apt install rubygems-integration -y
 gem install colorls
 sudo apt install lsd -y
 sudo apt install betterlockscreen -y
 sudo apt install lolcat -y
-sudo apt install batcat -y
+sudo apt install bat -y
+
+# Copiar ficheros .zshrc y configuracion de kitty
+cp .zshrc ~/
+cp .motd ~/
+cp kitty.conf ~/.config/kitty
+cp current-theme.conf ~/.config/kitty  
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
