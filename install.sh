@@ -1,15 +1,17 @@
 #!/bin/bash
 
+chsh -s $(which zsh)
+
 # Función para instalar paquetes en sistemas basados en Debian (apt)
 install_debian() {
     sudo apt update
-    sudo apt install -y kitty rubygems-integration lsd betterlockscreen lolcat bat
+    sudo apt install -y kitty rubygems-integration lsd lolcat bat betterlockscreen
     gem install colorls
 }
 
 # Función para instalar paquetes en sistemas basados en Arch (pacman)
 install_arch() {
-    sudo pacman -Syu --noconfirm kitty rubygems lsd betterlockscreen lolcat bat
+    sudo pacman -Syu --noconfirm kitty rubygems lsd lolcat bat #betterlockscreen
     gem install colorls
 }
 
