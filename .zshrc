@@ -402,7 +402,7 @@ fi
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # MODT
-/bin/cat ~/.modt
+/bin/cat ~/.motd
 
 
 
