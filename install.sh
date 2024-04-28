@@ -50,7 +50,7 @@ git clone https://github.com/kovidgoyal/kitty-themes.git ~/.config/kitty/
 
 # Instalar colorscripts
 git clone https://github.com/k3ssdev/shell-color-scripts.git ~/shell-color-scripts
-chmod +x ~/shell-color-scripts/coloscript.sh
+chmod +x ~/shell-color-scripts/colorscript.sh
 
 # Copiar ficheros .zshrc y configuracion de kitty
 cp .zshrc ~/
