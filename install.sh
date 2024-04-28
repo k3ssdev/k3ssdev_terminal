@@ -5,7 +5,7 @@ chsh -s $(which zsh)
 # Función para instalar paquetes en sistemas basados en Debian (apt)
 install_debian() {
     sudo apt update
-    sudo apt install -y kitty rubygems-integration lsd lolcat bat betterlockscreen
+    sudo apt install -y kitty rubygems-integration lsd lolcat bat #betterlockscreen
     gem install colorls
 }
 
