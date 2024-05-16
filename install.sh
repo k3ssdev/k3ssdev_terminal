@@ -1,31 +1,40 @@
 #!/bin/bash
 
+# Cambiar la shell predeterminada a zsh
 chsh -s $(which zsh)
 
 # Función para instalar paquetes en sistemas basados en Debian (apt)
 install_debian() {
     sudo apt update
-    sudo apt install -y kitty rubygems-integration lsd lolcat bat zsh #betterlockscreen
-    gem install colorls
+    packages=("kitty" "rubygems-integration" "lsd" "lolcat" "bat" "zsh") # "betterlockscreen"
+    for package in "${packages[@]}"; do
+        sudo apt install -y "$package" || echo "No se pudo instalar $package, continuando con el siguiente..."
+    done
+    gem install colorls || echo "No se pudo instalar colorls"
 }
 
 # Función para instalar paquetes en sistemas basados en Arch (pacman)
 install_arch() {
-    sudo pacman -Syu --noconfirm kitty rubygems lsd lolcat bat zsh #betterlockscreen
-    gem install colorls
+    sudo pacman -Syu --noconfirm
+    packages=("kitty" "rubygems" "lsd" "lolcat" "bat" "zsh") # "betterlockscreen"
+    for package in "${packages[@]}"; do
+        sudo pacman -S --noconfirm "$package" || echo "No se pudo instalar $package, continuando con el siguiente..."
+    done
+    gem install colorls || echo "No se pudo instalar colorls"
 }
 
-# Comprobar el sistema operativo
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+# Leer y analizar el archivo /etc/os-release para determinar la distribución
+if grep -qi 'debian' /etc/os-release; then
     # Sistema basado en Debian (Ubuntu, etc.)
     install_debian
-elif [[ "$OSTYPE" == "linux-musl" ]]; then
+elif grep -qi 'arch' /etc/os-release; then
     # Sistema basado en Arch (Manjaro, etc.)
     install_arch
 else
     echo "Sistema operativo no compatible."
     exit 1
 fi
+
 
 # Instalar fuentes Meslo
 mkdir -p ~/.fonts
@@ -57,6 +66,10 @@ cp .zshrc ~/
 cp .motd ~/
 cp kitty.conf ~/.config/kitty
 cp current-theme.conf ~/.config/kitty
+
+# Añadir zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 # Reiniciar la terminal para aplicar los cambios
 exec zsh
