@@ -353,7 +353,7 @@ function get_ip(){
 
 alias lock="betterlockscreen -l dim"
 alias img="kitty +kitten icat"
-alias cat="batcat"
+alias cat="bat"
 #alias ls="colorls --sd -A"
 alias ls="lsd -l"
 alias catn="/usr/bin/cat"
