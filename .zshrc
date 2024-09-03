@@ -423,3 +423,5 @@ nmap_scan() {
   # Escaneo final utilizando los puertos extraídos
   sudo nmap -p"$ports" -sC -sV -Pn -oN nmap_final "$ip_address"
 }
+
+source /home/kess/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
