@@ -353,7 +353,7 @@ function get_ip(){
 
 alias lock="betterlockscreen -l dim"
 alias img="kitty +kitten icat"
-alias cat="bat"
+alias cat="batcat"
 #alias ls="colorls --sd -A"
 alias ls="lsd -l"
 alias catn="/usr/bin/cat"
@@ -361,7 +361,10 @@ alias clock="tty-clock -sxc -C 2"
 alias clsram="sudo sync && sudo sysctl -w vm.drop_caches=3"
 alias cachefont="fc-cache -fv"
 alias colorscript="bash /home/${user}/shell-color-scripts/colorscript.sh -r"
-#bash /home/${user}/shell-color-scripts/colorscript.sh -r
+bash /home/${user}/shell-color-scripts/colorscript.sh -r
+
+# MODT
+#/bin/cat ~/.motd
 
 # fzf improvement
 function fzf-lovely(){
@@ -400,10 +403,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# MODT
-/bin/cat ~/.motd
-
 
 
 nmap_scan() {
