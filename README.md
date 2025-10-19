@@ -4,7 +4,7 @@ Configuración de terminal kitty con powerlevel10 y tema de HackTheBox.
 
 ## Descripción
 
-Este repositorio está diseñado para simplificar la configuración de Kali Linux y las herramientas que uso regularmente. Incluye un script que realiza las siguientes acciones:
+Este repositorio está diseñado para simplificar la configuración del terminal en (Kali) Linux y las herramientas que uso normalmente. Incluye un script que realiza las siguientes acciones:
 
 - Descarga fuentes MesloLGS en ~/Downloads.
 - Instala Kitty como el terminal predeterminado.
