@@ -18,13 +18,13 @@ Este repositorio está diseñado para simplificar la configuración de Kali Linu
 1. Clona este repositorio en tu sistema:
 
    ```bash
-   git clone https://github.com/k3ssdev/zsh_p10k_config
+   git clone https://github.com/k3ssdev/k3ssdev_terminal.git
    ```
 
 2. Navega al directorio del repositorio:
 
    ```bash
-   cd zsh_p10k_config
+   cd k3ss_terminal
    ```
 
 3. Ejecuta el script para automatizar la instalación y configuración:
